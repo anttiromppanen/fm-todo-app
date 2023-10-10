@@ -28,10 +28,13 @@ export default {
         userDarkGrayBlue1: "hsl(234, 11%, 52%)",
         userDarkGrayBlue2: "hsl(233, 14%, 35%)",
         userDarkGrayBlue3: "hsl(237, 14%, 26%)",
+        userDarkListItemBottomBorder: "hsl(235, 17%, 26%)",
       },
       backgroundImage: {
         userHeaderBgDarkMobile: "url('/bg-mobile-dark.jpg')",
         userHeaderBgDarkDesktop: "url('/bg-desktop-dark.jpg')",
+        userHeaderBgLightMobile: "url('/bg-mobile-light.jpg')",
+        userHeaderBgLightDesktop: "url('/bg-desktop-light.jpg')",
       },
     },
   },
