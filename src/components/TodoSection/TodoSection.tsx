@@ -17,12 +17,13 @@ function TodoSection() {
     : todos;
 
   return (
-    <section className="mt-8">
+    <section className="mt-8 md:mt-12">
       <AddTodo />
       <motion.ul
         className="
           mt-4 rounded-md bg-userLightLightGray text-xs text-userLightDarkGrayBlue2 shadow-2xl
-        shadow-gray-700/20 dark:bg-userDarkDarkDesaturatedBlue dark:text-userDarkLightGrayBlue"
+        shadow-gray-700/20 dark:bg-userDarkDarkDesaturatedBlue dark:text-userDarkLightGrayBlue
+          md:mt-6 md:text-lg"
       >
         <AnimatePresence>
           {todosFiltered.map((todo) => (
@@ -41,7 +42,11 @@ function TodoSection() {
             </motion.li>
           ))}
         </AnimatePresence>
-        <li className="flex justify-between p-5 text-xs text-userLightDarkGrayBlue1 dark:text-userDarkGrayBlue2">
+        <li
+          className="
+            flex justify-between p-5 text-xs text-userLightDarkGrayBlue1 dark:text-userDarkGrayBlue2
+            md:text-sm"
+        >
           <p>{`${todosFiltered.length} items left`}</p>
           <button type="button" onClick={() => clearCompletedTodos()}>
             Clear Completed

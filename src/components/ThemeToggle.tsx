@@ -40,16 +40,17 @@ function ThemeToggle() {
   return (
     <button type="button" onClick={toggleDarkMode}>
       <AnimatePresence mode="wait">
-        <motion.img
-          key={darkMode ? "moon" : "sun"}
-          initial={{ opacity: 0 }}
-          animate={{ scale: 0.75, opacity: 1 }}
-          exit={{ scale: 0.8, opacity: 0 }}
-          transition={{ duration: 0.1 }}
-          src={darkMode ? sunIcon : moonIcon}
-          alt="Theme toggle button"
-          className="scale-75"
-        />
+        <div className="scale-75 md:scale-100">
+          <motion.img
+            key={darkMode ? "moon" : "sun"}
+            initial={{ opacity: 0, scale: 0 }}
+            animate={{ opacity: 1, scale: 1 }}
+            exit={{ opacity: 0, scale: 0 }}
+            transition={{ duration: 0.2 }}
+            src={darkMode ? sunIcon : moonIcon}
+            alt="Theme toggle button"
+          />
+        </div>
       </AnimatePresence>
     </button>
   );

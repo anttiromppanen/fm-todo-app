@@ -22,22 +22,32 @@ function Todo({ todo }: { todo: ITodo }) {
         type="button"
         aria-label="Toggle completed"
         onClick={handleToggleComplete}
-        className="absolute left-0 top-0 z-10 h-full w-full focus:outline-userBgGradient2 focus-visible:outline focus-visible:outline-2 focus-visible:-outline-offset-1"
+        className="
+          peer absolute left-0 top-0 z-10 h-full w-full focus:outline-userBgGradient2
+          focus-visible:outline focus-visible:outline-2 focus-visible:-outline-offset-1"
       />
       <div className="flex items-center">
         <div
-          className={`flex h-[22px] w-[22px] items-center justify-center rounded-full border border-userLightLightGrayBlue2 bg-center bg-no-repeat ${
+          className={`
+            flex h-[22px] w-[22px] items-center justify-center rounded-full border 
+          border-userLightLightGrayBlue2 bg-center bg-no-repeat md:h-[26px] md:w-[26px] ${
             completed &&
             "bg-gradient-to-br from-userBgGradient1 to-userBgGradient2"
           }`}
         >
           {completed && <img src={checkIcon} alt="Todo completed" />}
         </div>
-        <p className={`ml-3 ${completed && "line-through opacity-40"}`}>
+        <p className={`ml-3 md:ml-6 ${completed && "line-through opacity-40"}`}>
           {text}
         </p>
       </div>
-      <button type="button" onClick={handleDelete} className="z-20 scale-75">
+      <button
+        type="button"
+        onClick={handleDelete}
+        className="
+          z-20 border-spacing-2 scale-75 hover:bg-red-400 md:hidden
+          md:scale-90 md:hover:block md:peer-hover:block md:peer-focus-visible:block"
+      >
         <img src={deleteIcon} alt="Delete" />
       </button>
     </div>
