@@ -12,7 +12,7 @@ function FilterRadioButton({
   handleClick: () => void;
 }) {
   return (
-    <label htmlFor={id} className="flex">
+    <label htmlFor={id} className="flex cursor-pointer">
       <input
         type="radio"
         name="filters"
@@ -21,7 +21,11 @@ function FilterRadioButton({
         onClick={handleClick}
         className="peer appearance-none"
       />
-      <p className="text-userLightDarkGrayBlue2 peer-checked:text-userBrightBlue">
+      <p
+        className="
+          p-2 text-userLightDarkGrayBlue2 peer-checked:text-userBrightBlue 
+          peer-focus-visible:outline"
+      >
         {text}
       </p>
     </label>

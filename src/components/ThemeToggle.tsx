@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { AnimatePresence, motion } from "framer-motion";
 import moonIcon from "../assets/images/icon-moon.svg";
 import sunIcon from "../assets/images/icon-sun.svg";
 
@@ -38,11 +39,18 @@ function ThemeToggle() {
 
   return (
     <button type="button" onClick={toggleDarkMode}>
-      <img
-        src={darkMode ? sunIcon : moonIcon}
-        alt="Theme toggle button"
-        className="scale-75"
-      />
+      <AnimatePresence mode="wait">
+        <motion.img
+          key={darkMode ? "moon" : "sun"}
+          initial={{ opacity: 0 }}
+          animate={{ scale: 0.75, opacity: 1 }}
+          exit={{ scale: 0.8, opacity: 0 }}
+          transition={{ duration: 0.1 }}
+          src={darkMode ? sunIcon : moonIcon}
+          alt="Theme toggle button"
+          className="scale-75"
+        />
+      </AnimatePresence>
     </button>
   );
 }

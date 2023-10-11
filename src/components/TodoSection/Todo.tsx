@@ -1,3 +1,4 @@
+/* eslint-disable react/jsx-props-no-spreading */
 import db from "../../firebase";
 import deleteIcon from "../../assets/images/icon-cross.svg";
 import checkIcon from "../../assets/images/icon-check.svg";
@@ -12,16 +13,16 @@ function Todo({ todo }: { todo: ITodo }) {
   const handleDelete = () => deleteTodo(id);
 
   return (
-    <li
+    <div
       className="
-            dark:border-b-userDarkListItemBottomBorder relative flex items-center 
-              justify-between border-b border-b-userLightLightGrayBlue2 p-5"
+        relative flex items-center justify-between border-b border-b-userLightLightGrayBlue2
+        p-5 dark:border-b-userDarkListItemBottomBorder"
     >
       <button
         type="button"
         aria-label="Toggle completed"
         onClick={handleToggleComplete}
-        className="absolute left-0 top-0 z-10 h-full w-full"
+        className="absolute left-0 top-0 z-10 h-full w-full focus:outline-userBgGradient2 focus-visible:outline focus-visible:outline-2 focus-visible:-outline-offset-1"
       />
       <div className="flex items-center">
         <div
@@ -39,7 +40,7 @@ function Todo({ todo }: { todo: ITodo }) {
       <button type="button" onClick={handleDelete} className="z-20 scale-75">
         <img src={deleteIcon} alt="Delete" />
       </button>
-    </li>
+    </div>
   );
 }
 
