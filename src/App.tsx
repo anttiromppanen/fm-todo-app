@@ -9,7 +9,10 @@ function App() {
       <Container>
         <Header />
         <TodoSection />
-        <FilterButtons />
+        <FilterButtons variant="mobile" />
+        <h3 className="my-14 text-center text-userLightDarkGrayBlue1 dark:text-userDarkGrayBlue2">
+          Drag and drop to reorder list
+        </h3>
       </Container>
     </main>
   );

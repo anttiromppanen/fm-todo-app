@@ -23,8 +23,8 @@ function FilterRadioButton({
       />
       <p
         className="
-          p-2 text-userLightDarkGrayBlue2 peer-checked:text-userBrightBlue 
-          peer-focus-visible:outline"
+          p-2 font-bold text-userLightDarkGrayBlue2/60
+        peer-checked:text-userBrightBlue peer-focus-visible:outline dark:text-userLightDarkGrayBlue2 md:py-0"
       >
         {text}
       </p>
@@ -36,7 +36,7 @@ FilterRadioButton.defaultProps = {
   checked: false,
 };
 
-function FilterButtons() {
+function FilterButtons({ variant }: { variant: "mobile" | "desktop" }) {
   const setFilter = useTodoStore((state) => state.setFilter);
   const handleAllClick = () => setFilter("");
   const handleActiveClick = () => setFilter("active");
@@ -44,23 +44,24 @@ function FilterButtons() {
 
   return (
     <section
-      className="
-      mt-4 flex justify-evenly rounded-md bg-userLightLightGray p-5 shadow-2xl shadow-gray-700/20
-      dark:bg-userDarkDarkDesaturatedBlue"
+      className={`
+      mt-4 flex justify-evenly rounded-md bg-userLightLightGray px-5 py-2 shadow-2xl shadow-gray-700/20
+    dark:bg-userDarkDarkDesaturatedBlue md:mt-0 md:justify-between md:bg-transparent md:p-0 md:shadow-none
+      ${variant === "mobile" ? "md:hidden" : "hidden md:flex"}`}
     >
       <FilterRadioButton
-        id="all"
+        id={variant === "mobile" ? "allMobile" : "allDesktop"}
         text="All"
         checked
         handleClick={handleAllClick}
       />
       <FilterRadioButton
-        id="active"
+        id={variant === "mobile" ? "activeMobile" : "activeDesktop"}
         text="Active"
         handleClick={handleActiveClick}
       />
       <FilterRadioButton
-        id="completed"
+        id={variant === "mobile" ? "completedMobile" : "completedDesktop"}
         text="Completed"
         handleClick={handleCompletedClick}
       />
